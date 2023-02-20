@@ -15,7 +15,6 @@ footer{
   align-items: center;
   justify-content: center;
   font-size: 1.70rem;
-  margin-bottom: 1rem;
 }
 
 menu{
@@ -35,16 +34,26 @@ main{
 
 
 .today{
-  padding-left: 50px;
+  padding-left: 110px;
 }
 
 
-.blockquote{
+blockquote {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 40px;
+  margin-inline-end: 40px;
+}
+
+.Qu{
+  font-size: 1.50rem;
   margin-bottom: 1rem;
 }
 
 .btn.btn-danger{
-  --bs-btn-bg:#FFC4C2;
+  --bs-btn-color:black;
+  --bs-btn-bg:#E74F4B;
   --bs-btn-border-color: black;
 }
 
