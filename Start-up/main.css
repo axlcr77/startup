@@ -22,6 +22,7 @@ menu{
     display: flex;
     list-style: none;
     flex-direction: row !important;
+    padding-left: 6.25px;
 }
 
 main{
@@ -35,6 +36,7 @@ main{
 
 .today{
   padding-left: 110px;
+  
 }
 
 
