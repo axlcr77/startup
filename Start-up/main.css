@@ -39,18 +39,20 @@ menu{
   
 }
 
+.Text-box{
+  display:flex;
+  flex: 1 calc(100vh - 110px);
+  align-items: center;
+  justify-content: space-around;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
 
 blockquote {
   display: block;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 40px;
-  margin-inline-end: 40px;
 }
 
 .Qu{
   font-size: 1.50rem;
-  margin-bottom: 1rem;
 }
 
 .btn.btn-danger{
