@@ -6,7 +6,6 @@ body{
 
 header{
     flex: 0 80px;
-
 }
 
 footer{
@@ -25,12 +24,13 @@ menu{
     padding-left: 6.25px;
 }
 
-main{
+.Main{
   display:flex;
   flex-direction: column;
   flex: 1 calc(100vh - 110px);
   align-items: center;
   justify-content: space-around;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
 }
 
 
@@ -60,6 +60,32 @@ blockquote {
 }
 
 
+.Boxes{
+  display: flex;
+  flex-direction:row;
+  justify-content: space-evenly;
+  align-items: center;
+  flex: 1 calc(100vh - 110px);
+  text-align: center;
+}
+
+.b1{
+  height: 100px;
+}
+.b2{
+  height: 100px;
+
+}
+.b3{
+  height: 100px;
+}
+.b4{
+  height: 100px;
+}
+
+.navbar.fixed-top.navbar-dark{
+  background-color: #FF9B98;
+}
 
 @media (max-height: 600px) {
     header {
