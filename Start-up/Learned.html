@@ -14,7 +14,7 @@
 
 
 <body>
-    <header class="text-reset fixed-top">
+    <header class="text-reset">
     <nav class="navbar p3 text-bg-dark">
         <menu class ="Topper">
         <li class="list-inline-item">
@@ -31,7 +31,19 @@
 
     <main class="Text-box">
         <div class="form-floating">
-            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+            <div class="mb-3">
+                <label for="text" class="form-label One-text">Subject</label>
+                <input type ="text" class="form-control Input-box" id="Oneline">
+                </div>
+            <div class="mb-3">
+                <label for="text" class="form-label One-text">One line name</label>
+                <input type ="text" class="form-control Input-box" id="Oneline">
+                <div id="HelpOneLine" class="form-text One-text">
+                    Describe the topic in one line to remember easily
+                </div>
+            </div>
+            <textarea class="form-control Input-box" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 300px; width:700px"></textarea>
             <label for="floatingTextarea2"></label>
+            <button type="button" class="btn btn-danger s-button"><a href="index.html" class="nav-link">Submit</a></button>
           </div>
     </main>
