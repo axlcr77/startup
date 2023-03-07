@@ -29,11 +29,13 @@ If something is not working then just create a class of their own and edit that 
 To see bootstrap’s classes just use the developer tools on the website and the templated pages
 
 
-Midterm Notes
+Midterm Notes!
+[HTML_Commands](https://user-images.githubusercontent.com/122303433/223302846-bed449bc-62ce-43ee-9ee5-06c33e27c760.png)
+![HTML_Commands2](https://user-images.githubusercontent.com/122303433/223302880-78b3a953-ea96-4fc1-a798-ddee6ac88be9.png)
+![HTML_Input](https://user-images.githubusercontent.com/122303433/223302898-b164b688-e37d-4592-ac8e-5a9e244b3e14.png)
 HTML tags
-![HTML_Commands](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ba22763f-a371-486d-814d-77b4e61963e3/Untitled.png)
-![HTML_Commands2](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d129855c-3873-4b58-afc3-593276ed1509/Untitled.png)
-![HTML_Input](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8a3d63b0-be02-461a-9fce-c7e9aca6eb15/Untitled.png)
+
+
 
 
 ![Front_page](https://user-images.githubusercontent.com/122303433/213807457-d309df4a-c74c-40f1-adc2-6738b6ee4476.jpg)
