@@ -9,7 +9,7 @@
         rel="stylesheet" 
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" 
         crossorigin="anonymous">
-
+        <script src="Fill.js" ></script>
     </head>
 
 
@@ -19,9 +19,6 @@
         <menu class ="Topper">
         <li class="list-inline-item">
             <a class="nav-link" href="index.html"><p class="h4"> Home |</p> </a>
-        <li class="list-inline-item">
-            <a class="nav-link" href="#" ><p class="h4">Test | </p></a>
-        </li>
         <li class="list-inline-item">
             <a class="nav-link active" href="ThingsLearned.html"><p class="h4">Things Learned </p></a>
         </li>
@@ -42,8 +39,11 @@
                     Describe the topic in one line to remember easily
                 </div>
             </div>
-            <textarea class="form-control Input-box" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 300px; width:700px"></textarea>
+            <textarea class="form-control Input-box"  id = "Summary" style="height: 300px; width:700px"></textarea>
             <label for="floatingTextarea2"></label>
-            <button type="button" class="btn btn-danger s-button"><a href="index.html" class="nav-link">Submit</a></button>
+            <button type="button" class="btn btn-danger s-button" onclick="store()">Submit</button>
           </div>
     </main>
+
+</body>
+</html>
