@@ -8,27 +8,49 @@ function LoadEntries(){
 
   const divBodyEl = document.querySelector('#Entrybox');
 
-  if(Summaries.length){
+  if(!Summaries.Subject){
     for( const [i, Summary] of Summaries.entries()){
-      const SubjectdEl = document.createElement('div');
-      const OnelinedEl = document.createElement('div');
-      const SummdEl = document.createElement('div');
+      
+      const SubjectdEl = document.createElement('p');
+      const OnelinedEl = document.createElement('p');
+      const SummdEl = document.createElement('p');
+
+      SubjectdEl.className = 'h4';
+      OnelinedEl.className = 'h5';
+      
 
       SubjectdEl.textContent = Summary.Subject;
       OnelinedEl.textContent = Summary.One_liner;
       SummdEl.textContent = Summary.Summ;
 
-      const rowEl = document.createElement('tr');
-      rowEl.appendChild(SubjectdEl);
-      rowEl.appendChild(OnelinedEl);
-      rowEl.appendChild(SummdEl);
+      const EntrydEl = document.createElement('div');
+      EntrydEl.appendChild(SubjectdEl);
+      EntrydEl.appendChild(OnelinedEl);
+      EntrydEl.appendChild(SummdEl);
 
-      divBodyEl.appendChild(rowEl);
+      divBodyEl.appendChild(EntrydEl);
 
     }
   } else{
-    divBodyEl.innerHTML = '<tr><td colSpan=4>Be the first to score</td></tr>';
+    divBodyEl.innerHTML = '<p>No entries yet!</p>';
   }
 }
 
 LoadEntries();
+
+
+// function LoadEntries2(){
+//     let fullEntry = [];
+//     const Sub = localStorage.getItem('Subject');
+//     const One = localStorage.getItem('OneLine');
+//     const Sum= localStorage.getItem('SummaryEntry');
+//     const output = document.getElementById('output1');
+
+//     output.innerHTML = Sum;
+
+//     if(!Sub.length || !One.length || !Sum.length){
+//       output.innerHTML = 'No Entries yet!'
+//     }
+// }
+
+// LoadEntries2();

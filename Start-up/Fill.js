@@ -6,7 +6,9 @@
 //     localStorage.setItem('OneLine',One_line.value);''
 //     localStorage.setItem('SummaryEntry' , info.value);
 //     window.location.href = "ThingsLearned.html";
-//}
+// }
+
+
 
 
 function store2(){
