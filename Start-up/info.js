@@ -1,36 +1,34 @@
 function LoadEntries(){
-    let Entries = [];
-    const entryText = localStorage.getItem('Boxes');
-    if(entryText){
-        Entries = JSON.parse(entryText);
+  let Summaries = [];
+  const thing = localStorage.getItem('EntryList');
+ // const SummText = document.getItem('Boxes');
+  if(thing){
+    Summaries = JSON.parse(thing);
+  }
+
+  const divBodyEl = document.querySelector('#Entrybox');
+
+  if(Summaries.length){
+    for( const [i, Summary] of Summaries.entries()){
+      const SubjectdEl = document.createElement('div');
+      const OnelinedEl = document.createElement('div');
+      const SummdEl = document.createElement('div');
+
+      SubjectdEl.textContent = Summary.Subject;
+      OnelinedEl.textContent = Summary.One_liner;
+      SummdEl.textContent = Summary.Summ;
+
+      const rowEl = document.createElement('tr');
+      rowEl.appendChild(SubjectdEl);
+      rowEl.appendChild(OnelinedEl);
+      rowEl.appendChild(SummdEl);
+
+      divBodyEl.appendChild(rowEl);
+
     }
-
-    const BodyEl = document.querySelector("#Entrybox");
-
-    if(Entries.length){
-        for (const [i, Entries] of Entries.entries()) {
-            const positionTdEl = document.createElement('td');
-            const nameTdEl = document.createElement('td');
-            const scoreTdEl = document.createElement('td');
-            const dateTdEl = document.createElement('td');
-      
-            positionTdEl.textContent = i + 1;
-            nameTdEl.textContent = Entries.name;
-            scoreTdEl.textContent = Entries.score;
-            dateTdEl.textContent = Entries.date;
-      
-            const rowEl = document.createElement('tr');
-            rowEl.appendChild(positionTdEl);
-            rowEl.appendChild(nameTdEl);
-            rowEl.appendChild(scoreTdEl);
-            rowEl.appendChild(dateTdEl);
-      
-            BodyEl.appendChild(rowEl);
-          }
-        } else {
-          BodyEl.innerHTML = '<tr><td colSpan=4>Be the first to score</td></tr>';
-        }
+  } else{
+    divBodyEl.innerHTML = '<tr><td colSpan=4>Be the first to score</td></tr>';
+  }
 }
 
 LoadEntries();
-
