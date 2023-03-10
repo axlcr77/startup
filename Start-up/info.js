@@ -8,7 +8,7 @@ function LoadEntries(){
 
   const divBodyEl = document.querySelector('#Entrybox');
 
-  if(!Summaries.Subject){
+  if(!thing.Subject){
     for( const [i, Summary] of Summaries.entries()){
       
       const SubjectdEl = document.createElement('p');
