@@ -29,6 +29,44 @@ If something is not working then just create a class of their own and edit that 
 To see bootstrap’s classes just use the developer tools on the website and the templated pages
 
 
+JavaScript notes:
+
+Make sure that the html file is reading the js file correctly. (File should be underlined.)
+
+This is a loop for creating elements according to each entry in the Summaries array. 
+```jsx
+for( const [i, Summary] of Summaries.entries()){
+      
+      const SubjectdEl = document.createElement('p');
+      const OnelinedEl = document.createElement('p');
+      const SummdEl = document.createElement('p');
+
+      SubjectdEl.className = 'h4';
+      OnelinedEl.className = 'h5';
+      
+
+      SubjectdEl.textContent = Summary.Subject;
+      OnelinedEl.textContent = Summary.One_liner;
+      SummdEl.textContent = Summary.Summ;
+
+      const EntrydEl = document.createElement('div');
+      EntrydEl.appendChild(SubjectdEl);
+      EntrydEl.appendChild(OnelinedEl);
+      EntrydEl.appendChild(SummdEl);
+
+      divBodyEl.appendChild(EntrydEl);
+
+    }
+  } else{
+    divBodyEl.innerHTML = '<p>No entries yet!</p>';
+  }
+```
+
+If you want it to load as the page starts then add the script element to the bottom of the html file. Before the body element.
+Use JSON.stringify function as the second argument when you set an item into local storage with the desired array or other data type as the argument.
+
+
+
 Midterm Notes!
 [HTML_Commands](https://user-images.githubusercontent.com/122303433/223302846-bed449bc-62ce-43ee-9ee5-06c33e27c760.png)
 ![HTML_Commands2](https://user-images.githubusercontent.com/122303433/223302880-78b3a953-ea96-4fc1-a798-ddee6ac88be9.png)
