@@ -66,6 +66,16 @@ If you want it to load as the page starts then add the script element to the bot
 Use JSON.stringify function as the second argument when you set an item into local storage with the desired array or other data type as the argument.
 
 
+Simon Service Notes
+
+Math.random returns a number between 0 and 1 with 0 included and 1 excluded. The number is then multiplied by 1000 because those are the numbers that the link uses to display an image.
+
+Fetch call question:
+Index Question:
+
+
+
+
 
 Midterm Notes!
 [HTML_Commands](https://user-images.githubusercontent.com/122303433/223302846-bed449bc-62ce-43ee-9ee5-06c33e27c760.png)
