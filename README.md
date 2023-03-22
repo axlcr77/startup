@@ -74,6 +74,21 @@ Fetch call question:
 Index Question:
 
 
+Simon DB:
+VERY USEFUL COMMANDS INSIDE THE PRODUCTION ENVIRONMENT
+pm2 restart simon
+pm2 start index.js -n simon -- 3000
+pm2 delete simon
+
+When pushing a score the score goes directly into the database. When scores are pulled up the info is from the data base.
+``jsx
+const scoreCollection = client.db('simon').collection('score');
+
+function addScore(score) {
+  scoreCollection.insertOne(score);
+}
+``
+This is how to push onto the data base
 
 
 
