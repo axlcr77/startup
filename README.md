@@ -75,21 +75,28 @@ Index Question:
 
 
 Simon DB:
-VERY USEFUL COMMANDS INSIDE THE PRODUCTION ENVIRONMENT
+VERY USEFUL COMMANDS INSIDE THE PRODUCTION ENVIRONMENT:
 pm2 restart simon
 pm2 start index.js -n simon -- 3000
 pm2 delete simon
 
 When pushing a score the score goes directly into the database. When scores are pulled up the info is from the data base.
-``jsx
+```jsx
 const scoreCollection = client.db('simon').collection('score');
 
 function addScore(score) {
   scoreCollection.insertOne(score);
 }
-``
+```
 This is how to push onto the data base
 
+
+Simon Login:
+npm install express cookie-parser mongodb uuid bcrypt
+Command to install all the necessary packages so that you can give tokens when a user creates an account, encrypt that username and password.
+Index Code is very useful for a making a user and checking if that user exists, has the right credentials, or create a new user.
+Database code is very useful for exporting the functions that you make and want to use them elsewhere. This is also good code to grab the credentials and link the data into the data base
+*Need to replace some code in start up to not store locally
 
 
 Midterm Notes!
