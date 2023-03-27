@@ -99,6 +99,36 @@ Database code is very useful for exporting the functions that you make and want 
 *Need to replace some code in start up to not store locally
 
 
+
+Simon Websockets:
+```jsx
+  configureWebSocket() {
+    const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+    this.socket = new WebSocket(`${protocol}://${window.location.host}/ws`); //Create a new socket
+    this.socket.onopen = (event) => {                   //When it opens display the message
+      this.displayMsg('system', 'game', 'connected');
+    };
+    this.socket.onclose = (event) => {                 //When it closes
+      this.displayMsg('system', 'game', 'disconnected');
+    };
+    this.socket.onmessage = async (event) => {
+      const msg = JSON.parse(await event.data.text());
+      if (msg.type === GameEndEvent) {                //Once the game ends then you display the score of a player with their name and score
+        this.displayMsg('player', msg.from, `scored ${msg.value.score}`);
+      } else if (msg.type === GameStartEvent) {                 //When the game starts you display that the player is starting a new game
+        this.displayMsg('player', msg.from, `started a new game`);
+      }
+    };
+  }
+  
+    displayMsg(cls, from, msg) {       //"Injecting" HTML into the page so that the websocket is visible
+    const chatText = document.querySelector('#player-messages');
+    chatText.innerHTML =
+      `<div class="event"><span class="${cls}-event">${from}</span> ${msg}</div>` + chatText.innerHTML;
+  }
+```
+
+
 Midterm Notes!
 [HTML_Commands](https://user-images.githubusercontent.com/122303433/223302846-bed449bc-62ce-43ee-9ee5-06c33e27c760.png)
 ![HTML_Commands2](https://user-images.githubusercontent.com/122303433/223302880-78b3a953-ea96-4fc1-a798-ddee6ac88be9.png)
