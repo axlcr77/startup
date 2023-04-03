@@ -29,6 +29,106 @@ If something is not working then just create a class of their own and edit that 
 To see bootstrap’s classes just use the developer tools on the website and the templated pages
 
 
+JavaScript notes:
+
+Make sure that the html file is reading the js file correctly. (File should be underlined.)
+
+This is a loop for creating elements according to each entry in the Summaries array. 
+```jsx
+for( const [i, Summary] of Summaries.entries()){
+      
+      const SubjectdEl = document.createElement('p');
+      const OnelinedEl = document.createElement('p');
+      const SummdEl = document.createElement('p');
+
+      SubjectdEl.className = 'h4';
+      OnelinedEl.className = 'h5';
+      
+
+      SubjectdEl.textContent = Summary.Subject;
+      OnelinedEl.textContent = Summary.One_liner;
+      SummdEl.textContent = Summary.Summ;
+
+      const EntrydEl = document.createElement('div');
+      EntrydEl.appendChild(SubjectdEl);
+      EntrydEl.appendChild(OnelinedEl);
+      EntrydEl.appendChild(SummdEl);
+
+      divBodyEl.appendChild(EntrydEl);
+
+    }
+  } else{
+    divBodyEl.innerHTML = '<p>No entries yet!</p>';
+  }
+```
+
+If you want it to load as the page starts then add the script element to the bottom of the html file. Before the body element.
+Use JSON.stringify function as the second argument when you set an item into local storage with the desired array or other data type as the argument.
+
+
+Simon Service Notes
+
+Math.random returns a number between 0 and 1 with 0 included and 1 excluded. The number is then multiplied by 1000 because those are the numbers that the link uses to display an image.
+
+Fetch call question:
+Index Question:
+
+
+Simon DB:
+VERY USEFUL COMMANDS INSIDE THE PRODUCTION ENVIRONMENT:
+pm2 restart simon
+pm2 start index.js -n simon -- 3000
+pm2 delete simon
+
+When pushing a score the score goes directly into the database. When scores are pulled up the info is from the data base.
+```jsx
+const scoreCollection = client.db('simon').collection('score');
+
+function addScore(score) {
+  scoreCollection.insertOne(score);
+}
+```
+This is how to push onto the data base
+
+
+Simon Login:
+npm install express cookie-parser mongodb uuid bcrypt
+Command to install all the necessary packages so that you can give tokens when a user creates an account, encrypt that username and password.
+Index Code is very useful for a making a user and checking if that user exists, has the right credentials, or create a new user.
+Database code is very useful for exporting the functions that you make and want to use them elsewhere. This is also good code to grab the credentials and link the data into the data base
+*Need to replace some code in start up to not store locally
+
+
+
+Simon Websockets:
+```jsx
+  configureWebSocket() {
+    const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+    this.socket = new WebSocket(`${protocol}://${window.location.host}/ws`); //Create a new socket
+    this.socket.onopen = (event) => {                   //When it opens display the message
+      this.displayMsg('system', 'game', 'connected');
+    };
+    this.socket.onclose = (event) => {                 //When it closes
+      this.displayMsg('system', 'game', 'disconnected');
+    };
+    this.socket.onmessage = async (event) => {
+      const msg = JSON.parse(await event.data.text());
+      if (msg.type === GameEndEvent) {                //Once the game ends then you display the score of a player with their name and score
+        this.displayMsg('player', msg.from, `scored ${msg.value.score}`);
+      } else if (msg.type === GameStartEvent) {                 //When the game starts you display that the player is starting a new game
+        this.displayMsg('player', msg.from, `started a new game`);
+      }
+    };
+  }
+  
+    displayMsg(cls, from, msg) {       //"Injecting" HTML into the page so that the websocket is visible
+    const chatText = document.querySelector('#player-messages');
+    chatText.innerHTML =
+      `<div class="event"><span class="${cls}-event">${from}</span> ${msg}</div>` + chatText.innerHTML;
+  }
+```
+
+
 Midterm Notes!
 [HTML_Commands](https://user-images.githubusercontent.com/122303433/223302846-bed449bc-62ce-43ee-9ee5-06c33e27c760.png)
 ![HTML_Commands2](https://user-images.githubusercontent.com/122303433/223302880-78b3a953-ea96-4fc1-a798-ddee6ac88be9.png)
