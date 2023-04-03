@@ -11,8 +11,8 @@
 
 
 
-function store2(){
-    let Entries = [];
+async function store2(){
+    // let Entries = [];
     const subject = document.querySelector('#Subject');
     const One_line = document.querySelector('#Oneline');
     const info = document.querySelector("#Summary");
@@ -21,8 +21,14 @@ function store2(){
         One_liner: One_line.value,
         Summ: info.value
     }
-    Entries.push(entry);
-    localStorage.setItem('EntryList', JSON.stringify(Entries));
+    // Entries.push(entry);
+    // localStorage.setItem('EntryList', JSON.stringify(Entries));
+    
+    await fetch('/api/Entry',{
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(entry),
+    });
     window.location.href = "ThingsLearned.html";
 }
 

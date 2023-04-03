@@ -13,8 +13,8 @@ if (!userName) {
 const url = `mongodb+srv://${userName}:${password}@${hostname}`;
 
 const client = new MongoClient(url);
-const userCollection = client.db('simon').collection('user');
-const scoreCollection = client.db('simon').collection('score');
+const userCollection = client.db('Start-up').collection('user');
+const entryCollection = client.db('Start-up').collection('Entries');
 
 function getUser(email) {
   return userCollection.findOne({ email: email });
@@ -38,24 +38,35 @@ async function createUser(email, password) {
   return user;
 }
 
-function addScore(score) {
-  scoreCollection.insertOne(score);
-}
 
-function getHighScores() {
+// const Entry = {
+//     subject: ' ',
+//     Oneline:  ' ',
+//     Summary: '',
+
+// };
+
+// async function getEntries(Entry){
+// await userCollection.insertOne(Entry);
+// };
+
+// function addScore(score) {
+//   scoreCollection.insertOne(score);
+// }
+
+function getEntries() {
   const query = {};
-  const options = {
-    sort: { score: -1 },
-    limit: 10,
-  };
-  const cursor = scoreCollection.find(query, options);
+  const cursor = entryCollection.find(query);
   return cursor.toArray();
+}
+async function addEntries(Entry){
+    await userCollection.insertOne(Entry);
 }
 
 module.exports = {
   getUser,
   getUserByToken,
   createUser,
-  addScore,
-  getHighScores,
+  addEntries,
+  getEntries,
 };

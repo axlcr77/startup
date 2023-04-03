@@ -1,14 +1,21 @@
-function LoadEntries(){
+async function LoadEntries(){
   let Summaries = [];
-  const thing = localStorage.getItem('EntryList');
+  const v = await fetch('/api/Entry',{
+    method: 'GET',
+    headers: { 'content-type': 'application/json' },
+  });
+  // const thing = localStorage.getItem('EntryList');
  // const SummText = document.getItem('Boxes');
-  if(thing){
-    Summaries = JSON.parse(thing);
-  }
+  // if(thing){
+  //   Summaries = JSON.parse(thing);
+  // }
 
-  const divBodyEl = document.querySelector('#Entrybox');
 
-  if(!thing.Subject){
+
+
+  const divBodyEl = v.body;
+
+  if(v.body){
     for( const [i, Summary] of Summaries.entries()){
       
       const SubjectdEl = document.createElement('p');
