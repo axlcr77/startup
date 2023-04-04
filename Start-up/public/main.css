@@ -87,6 +87,14 @@ blockquote {
   flex: 1 calc(100vh - 110px);
   text-align: center;
 }
+#Boxes{
+  display: flex;
+  flex-direction:row;
+  justify-content: space-evenly;
+  align-items: center;
+  flex: 1 calc(100vh - 110px);
+  text-align: center;
+}
 
 .navbar.fixed-top.navbar-dark{
   background-color: #FF9B98;

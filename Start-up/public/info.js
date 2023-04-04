@@ -17,7 +17,7 @@ async function LoadEntries(){
 
 
   function displayEntries(Entry){
-  const divBodyEl = document.querySelector('#Entrybox');
+  const divBodyEl = document.querySelector('#Boxes');
   divBodyEl.className = 'Entries'
   if(Entry.length){
     for( const [i, Summary] of Entry.entries()){
