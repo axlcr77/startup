@@ -60,7 +60,7 @@ function getEntries() {
   return cursor.toArray();
 }
 async function addEntries(Entry){
-    await userCollection.insertOne(Entry);
+    await entryCollection.insertOne(Entry);
 }
 
 module.exports = {

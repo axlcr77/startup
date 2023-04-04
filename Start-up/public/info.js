@@ -1,22 +1,26 @@
 async function LoadEntries(){
   let Summaries = [];
-  const v = await fetch('/api/Entry',{
-    method: 'GET',
-    headers: { 'content-type': 'application/json' },
-  });
+  const v = await fetch('/api/Entry');
+  // const v = await fetch('/api/Entry',{
+  //   method: 'GET',
+  //   headers: { 'content-type': 'application/json' },
+  // });
+  Summaries = await v.json();
   // const thing = localStorage.getItem('EntryList');
  // const SummText = document.getItem('Boxes');
-  // if(thing){
-  //   Summaries = JSON.parse(thing);
+  // if(v){
+  //   Summaries = JSON.parse(v);
   // }
+  displayEntries(Summaries);
+}
 
 
 
-
-  const divBodyEl = v.body;
-
-  if(v.body){
-    for( const [i, Summary] of Summaries.entries()){
+  function displayEntries(Entry){
+  const divBodyEl = document.querySelector('#Entrybox');
+  divBodyEl.className = 'Entries'
+  if(Entry.length){
+    for( const [i, Summary] of Entry.entries()){
       
       const SubjectdEl = document.createElement('p');
       const OnelinedEl = document.createElement('p');

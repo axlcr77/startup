@@ -9,12 +9,13 @@
     }
   
     if (authenticated) {
-      document.querySelector('#playerName').textContent = userName;
+      document.querySelector('#user').textContent = userName;
       setDisplay('loginControls', 'none');
-      setDisplay('playControls', 'block');
+      setDisplay('TodayPage', 'block');
+      setDisplay('Logout', 'block');
     } else {
       setDisplay('loginControls', 'block');
-      setDisplay('playControls', 'none');
+      setDisplay('TodayPage', 'none');
     }
   })();
   

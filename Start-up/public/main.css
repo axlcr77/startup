@@ -4,6 +4,11 @@ body{
     min-width: 375px;
 }
 
+.Entries{
+  display: flex;
+  flex-direction: row;
+}
+
 header{
     flex: 0 80px;
 }
